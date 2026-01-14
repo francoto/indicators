@@ -4,38 +4,50 @@
     },
     "archived_in_scholarly_repository": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-08"
         },
         "fairsoft": {
+            "mapping": "narrower",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/findability/F3_searchability/"
         }
     },
     "archived_in_software_heritage": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-08"
         },
         "fairsoft": {
+            "mapping": "narrower",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/findability/F3_searchability/"
         }
     },
     "dependency_management": {
         "chaoss": {
+            "mapping": "broader",
             "url": "https://chaoss.community/kb/metric-libyears/"
         }
     },
     "descriptive_metadata": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "equivalent",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-04"
         },
         "fairsoft": {
+            "mapping": "equivalent",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/findability/F2_existence_of_metadata/"
         },
         "helmholtz": {
-            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5"
+            "mapping": "broader",
+            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5#RichMetadata"
         }
+    },
+    "functional_correctness": {
+        "url": ""
     },
     "has_ci-tests": {
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#ci-tests"
         }
     },
@@ -44,28 +56,34 @@
     },
     "has_published_package": {
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#packaging"
         },
         "fairsoft": {
+            "mapping": "narrower",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/accessibility/A1_downloadable/"
         }
     },
     "has_releases": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-03"
         }
     },
     "human_code_review_requirement": {
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#code-review"
         }
     },
     "listed_in_registry": {
         "fairsoft": {
+            "mapping": "equivalent",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/findability/F3_searchability/"
         },
         "elixir": {
-            "url": "https://zenodo.org/records/17035105"
+            "mapping": "equivalent",
+            "url": "https://zenodo.org/records/17035105#ListedInRegistries"
         }
     },
     "metadata_is_up_to_date": {
@@ -73,6 +91,7 @@
     },
     "no_critical_vulnerability": {
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#vulnerabilities"
         }
     },
@@ -80,14 +99,23 @@
         "url": ""
     },
     "persistent_and_unique_identifier": {
-        "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
-        },
+        "fair_impact": [
+            {
+                "mapping": "equivalent",
+                "url": "https://fair-impact.eu/metrics-software#FRSM-01"
+            },
+            {
+                "mapping": "broader",
+                "url": "https://fair-impact.eu/metrics-software#FRSM-07"
+            }
+        ],
         "fairsoft": {
+            "mapping": "equivalent",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/findability/F1_identity_uniqueness/"
         },
         "helmholtz": {
-            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5"
+            "mapping": "narrower",
+            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5#Identifier"
         }
     },
     "repository_workflows": {
@@ -95,71 +123,99 @@
     },
     "requirements_specified": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "equivalent",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-13"
         },
         "fairsoft": {
+            "mapping": "equivalent",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/interoperability/I3_dependencies_available/"
         },
         "helmholtz": {
-            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5"
+            "mapping": "narrower",
+            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5#ReusabilityConditions"
         }
     },
     "software_has_citation": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "broader",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-12"
         }
     },
     "software_has_documentation": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-05"
         },
         "fairsoft": {
+            "mapping": "broader",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/reusability/R1_usage_documentation/"
         },
         "helmholtz": {
-            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5"
+            "mapping": "broader",
+            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5#TechnicalAccessibility"
         },
-        "elixir": {
-            "url": "https://zenodo.org/records/17035105"
-        }
+        "elixir": [
+            {
+                "mapping": "equivalent",
+                "url": "https://zenodo.org/records/17035105#BasicDocumentation"
+            },
+            {
+                "mapping": "broader",
+                "url": "https://zenodo.org/records/17035105#ProjectDescription"
+            }
+        ]
     },
     "software_has_license": {
         "chaoss": {
+            "mapping": "equivalent",
             "url": "https://chaoss.community/kb/metric-licenses-declared/"
         },
         "fair_impact": [
             {
-                "url": "https://fair-impact.eu/metrics-software"
+                "mapping": "equivalent",
+                "url": "https://fair-impact.eu/metrics-software#FRSM-15"
             },
             {
-                "url": "https://fair-impact.eu/metrics-software"
+                "mapping": "narrower",
+                "url": "https://fair-impact.eu/metrics-software#FRSM-16"
             }
         ],
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#license"
         },
         "fairsoft": {
+            "mapping": "equivalent",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/reusability/R2_license/"
         },
         "elixir": {
-            "url": "https://zenodo.org/records/17035105"
+            "mapping": "broader",
+            "url": "https://zenodo.org/records/17035105#LicensingAndReusability"
         }
     },
     "software_has_tests": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "equivalent",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-14"
         },
         "elixir": {
-            "url": "https://zenodo.org/records/17035105"
+            "mapping": "narrower",
+            "url": "https://zenodo.org/records/17035105#TestCoverageOfCodeAndFunction"
         }
     },
     "software_test_coverage": {
         "chaoss": {
+            "mapping": "equivalent",
             "url": "https://chaoss.community/kb/metric-test-coverage/"
+        },
+        "elixir": {
+            "mapping": "narrower",
+            "url": "https://zenodo.org/records/17035105#TestCoverageOfCodeAndFunction"
         }
     },
     "static_analysis_common_vulnerabilities": {
         "openssf": {
+            "mapping": "equivalent",
             "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#sast"
         }
     },
@@ -168,7 +224,8 @@
     },
     "uses_fuzzing": {
         "openssf": {
-            "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#cfuzzing"
+            "mapping": "equivalent",
+            "url": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#fuzzing"
         }
     },
     "uses_tool_for_warnings_and_mistakes": {
@@ -176,21 +233,26 @@
     },
     "version_control_use": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-17"
         },
         "fairsoft": {
+            "mapping": "narrower",
             "url": "https://inab.github.io/FAIRsoft_indicators/indicators/reusability/R4_provenance/"
         }
     },
     "versioning_standards_use": {
         "fair_impact": {
-            "url": "https://fair-impact.eu/metrics-software"
+            "mapping": "narrower",
+            "url": "https://fair-impact.eu/metrics-software#FRSM-03"
         },
         "helmholtz": {
-            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5"
+            "mapping": "narrower",
+            "url": "https://github.com/EVERSE-ResearchSoftware/schemas/issues/5#Versioning"
         },
         "elixir": {
-            "url": "https://zenodo.org/records/17035105"
+            "mapping": "narrower",
+            "url": "https://zenodo.org/records/17035105#Versioning"
         }
     }
 }

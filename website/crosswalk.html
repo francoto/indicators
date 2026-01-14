@@ -238,36 +238,36 @@
             }
 
             const values = Array.isArray(entry) ? entry : [entry];
-            let hasUrl = false;
+            let hasContent = false;
 
             values.forEach((item, index) => {
-                if (item && item.url) {
-                    hasUrl = true;
+                if (item && item.mapping && item.url) {
+                    hasContent = true;
 
                     const link = document.createElement("a");
                     link.href = item.url;
-                    link.textContent = "X";
+                    link.textContent = item.mapping;
                     link.target = "_blank";
 
                     link.style.display = "block";
-                    link.style.textAlign = "center";
-                    link.style.fontSize = "20px";
-                    link.style.fontWeight = "700";
+                    link.style.fontSize = "15px";
+                    link.style.fontWeight = "normal";
                     link.style.color = "#1E90FF";
                     link.style.margin = "4px 0";
+                    link.style.textDecoration = "none";
 
                     cell.appendChild(link);
 
                     if (index < values.length - 1) {
                         const hr = document.createElement("hr");
-                        hr.style.borderTop = "1px dashed #444";
+                        hr.style.borderTop = "1px dashed #777";
                         hr.style.margin = "4px 0";
                         cell.appendChild(hr);
                     }
                 }
             });
 
-            if (!hasUrl) {
+            if (!hasContent) {
                 cell.textContent = "-";
                 cell.style.color = "#999";
             }
