@@ -124,6 +124,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .sort-btn {
+            background: none;
+            border: none;
+            margin-left: 6px;
+            padding: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        .sort-btn:hover {
+            color: #005bb5;
+        }
+
+        .sort-btn:focus {
+            outline: none;
+        }
     </style>
 </head>
 
@@ -186,14 +205,14 @@
                     <col style="width: 37%;"> <!-- Name -->
                     <col style="width: 20%;"> <!-- Analysis -->
                     <col style="width: 20%;"> <!-- Proto Tool -->
-                    <col style="width: 20%;"> <!-- RS Infra -->
+                    <col style="width: 23%;"> <!-- RS Infra -->
                 </colgroup>
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Relevant for Analysis Code</th>
-                        <th>Relevant for Prototype Tool</th>
-                        <th>Relevant for RS Infrastructure</th>
+                        <th>Relevant for Analysis Code<button class="sort-btn" onclick="sortByTier('analysisCode')" aria-label="Sort">▾</button></th>
+                        <th>Relevant for Prototype Tool<button class="sort-btn" onclick="sortByTier('prototypeTool')" aria-label="Sort">▾</button></th>
+                        <th>Relevant for RS Infrastructure<button class="sort-btn" onclick="sortByTier('rsInfrastructure')" aria-label="Sort">▾</button></th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -203,6 +222,13 @@
 
     <script>
         let allData = [];
+        let originalData = [];
+
+        const tierOrder = ["crucial", "recommended", "good to have", "not relevant"];
+        let currentSort = {
+            column: null,
+            index: -1
+        };
 
         async function fetchCSVFile(csvPath) {
             const overlay = document.getElementById("table-loading-overlay");
@@ -228,6 +254,7 @@
                         });
 
                         allData = data;
+                        originalData = [...data];
                         updateTableFromCSV(allData);
                     }
                 });
@@ -294,6 +321,46 @@
             });
         }
 
+        function sortByTier(column) {
+            if (currentSort.column !== column) {
+                currentSort.column = column;
+                currentSort.index = -1;
+            }
+
+            const presentValues = tierOrder.filter(value =>
+                allData.some(item =>
+                    (item[column] || "").toLowerCase() === value
+                )
+            );
+
+            if (presentValues.length === 0) {
+                return;
+            }
+
+            currentSort.index++;
+
+            if (currentSort.index >= presentValues.length) {
+                currentSort.column = null;
+                currentSort.index = -1;
+                updateTableFromCSV(originalData);
+                return;
+            }
+
+            const priority = presentValues[currentSort.index];
+
+            const sorted = [...allData].sort((a, b) => {
+                const aVal = (a[column] || "").toLowerCase();
+                const bVal = (b[column] || "").toLowerCase();
+
+                if (aVal === priority && bVal !== priority) return -1;
+                if (bVal === priority && aVal !== priority) return 1;
+                return 0;
+            });
+
+            updateTableFromCSV(sorted);
+        }
+
+
         document.addEventListener("DOMContentLoaded", () => {
             const input = document.getElementById("search-input");
             const clearButton = document.getElementById("clear-search");
@@ -316,6 +383,13 @@
                 input.value = "";
                 input.focus();
                 updateTableFromCSV(allData);
+            });
+
+            document.querySelectorAll("th[data-sort]").forEach(th => {
+                th.addEventListener("click", () => {
+                    const column = th.dataset.sort;
+                    sortByTier(column);
+                });
             });
 
             fetchCSVFile('../docs/consensus_summary.csv');
