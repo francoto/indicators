@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run metacheck analysis (current repo)
-        uses: SoftwareUnderstanding/sw-metadata-bot/.github/actions/metacheck-analysis@v1
+        uses: SoftwareUnderstanding/sw-metadata-bot/.github/actions/metacheck-analysis@main
         id: analysis
         with:
           input: https://github.com/${{ github.repository }}
@@ -24,7 +24,7 @@ jobs:
           analysis-output: analysis_results.json
 
       - name: Create issues (dry-run)
-        uses: SoftwareUnderstanding/sw-metadata-bot/.github/actions/create-issues@v1
+        uses: SoftwareUnderstanding/sw-metadata-bot/.github/actions/create-issues@main
         with:
           pitfalls-output-dir: ${{ steps.analysis.outputs.pitfalls-output-dir }}
           issues-dir: issues_output
